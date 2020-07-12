@@ -1,10 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
 
-// import { Container } from './styles';
+import styles from './styles';
 
 const Home: React.FC = () => {
-  return <View>Home</View>;
-}
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Mime</Text>
+    </SafeAreaView>
+  );
+};
 
 export default Home;
