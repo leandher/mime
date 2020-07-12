@@ -14,7 +14,7 @@ import { AppLoading } from 'expo';
 
 import Routes from './src/routes';
 
-export default function App() {
+const App: React.FC = () => {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_500Medium,
@@ -30,4 +30,6 @@ export default function App() {
       <Routes />
     </>
   );
-}
+};
+
+export default App;
