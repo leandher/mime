@@ -3,6 +3,7 @@ import { Text, View, FlatList } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 import Background from '../../components/Background';
 import Button from '../../components/Button';
@@ -11,6 +12,12 @@ import Header from '../../components/Header';
 import styles from './styles';
 
 const Configurations: React.FC = () => {
+  const navigation = useNavigation();
+
+  const handleNavigation = () => {
+    navigation.navigate('Game');
+  };
+
   return (
     <Background>
       <Header />
@@ -60,7 +67,7 @@ const Configurations: React.FC = () => {
           <Text style={styles.buttonText}>Adicionar Equipe</Text>
         </Button>
 
-        <Button onPress={() => {}}>
+        <Button onPress={handleNavigation}>
           <Text style={styles.buttonText}>Próximo</Text>
         </Button>
       </View>
