@@ -10,20 +10,16 @@ export default StyleSheet.create({
     fontSize: 36,
     fontFamily: 'Roboto_700Bold',
     marginBottom: 36,
+    textAlign: 'center',
   },
   wordPointTitle: {
     fontSize: 18,
     fontFamily: 'Roboto_400Regular',
+    textAlign: 'center',
   },
   wordPointValue: {
     fontSize: 24,
     fontFamily: 'Roboto_700Bold',
-  },
-  buttonGroup: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-    marginTop: 36,
+    textAlign: 'center',
   },
 });

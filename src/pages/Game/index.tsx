@@ -1,14 +1,16 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-
-import { Feather } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
 
 import Background from '../../components/Background';
 import Header from '../../components/Header';
 
+import ActionButtons from './components/ActionButtons';
+import ProgressBar from './components/ProgressBar';
 import styles from './styles';
 
 const Game: React.FC = () => {
+  const [isPlaying, setPlaying] = useState(false);
+
   return (
     <Background>
       <Header />
@@ -19,20 +21,8 @@ const Game: React.FC = () => {
         <Text style={styles.wordPointTitle}>Valendo</Text>
         <Text style={styles.wordPointValue}>5 pontos</Text>
 
-        <View style={styles.buttonGroup}>
-          <TouchableOpacity onPress={() => {}}>
-            <Feather name="play-circle" size={48} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => {}}>
-            <Feather name="refresh-cw" size={48} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => {}}>
-            <Feather name="menu" size={48} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => {}}>
-            <Feather name="fast-forward" size={48} />
-          </TouchableOpacity>
-        </View>
+        {!isPlaying && <ActionButtons handlePlay={() => setPlaying((state) => !state)} />}
+        {isPlaying && <ProgressBar time={30} handleFinish={() => setPlaying((state) => !state)} />}
       </View>
     </Background>
   );
