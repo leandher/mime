@@ -8,8 +8,7 @@ export default StyleSheet.create({
     borderRadius: 25,
     overflow: 'hidden',
     alignItems: 'center',
-    marginTop: 8,
-    marginBottom: 24,
+    marginTop: 16,
     width: 263,
   },
 });

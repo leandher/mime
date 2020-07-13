@@ -1,5 +1,5 @@
 import React from 'react';
-import { RectButton } from 'react-native-gesture-handler';
+import { TouchableHighlight } from 'react-native';
 
 import styles from './styles';
 
@@ -9,9 +9,9 @@ interface Props {
 
 const Button: React.FC<Props> = ({ onPress, children }) => {
   return (
-    <RectButton onPress={onPress} style={styles.button}>
+    <TouchableHighlight onPress={onPress} style={styles.button}>
       {children}
-    </RectButton>
+    </TouchableHighlight>
   );
 };
 

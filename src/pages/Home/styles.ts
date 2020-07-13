@@ -11,6 +11,8 @@ export default StyleSheet.create({
   title: {
     fontFamily: 'VampiroOne_400Regular',
     fontSize: 64,
+    width: '100%',
+    textAlign: 'center',
   },
   buttonText: {
     flex: 1,
@@ -21,7 +23,6 @@ export default StyleSheet.create({
     fontSize: 16,
   },
   image: {
-    width: '63%',
     height: '70%',
   },
 });
