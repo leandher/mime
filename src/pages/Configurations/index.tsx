@@ -18,9 +18,17 @@ const Configurations: React.FC = () => {
     navigation.navigate('Game');
   };
 
+  const handleNavigateBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <Background>
-      <Header />
+      <Header>
+        <TouchableOpacity onPress={handleNavigateBack}>
+          <Feather name="arrow-left" size={24} />
+        </TouchableOpacity>
+      </Header>
       <View style={styles.item}>
         <View style={styles.itemContainer}>
           <Feather name="clock" size={24} />

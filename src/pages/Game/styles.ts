@@ -6,14 +6,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  wordTitle: {
+  word: {
     fontSize: 36,
     fontFamily: 'Roboto_700Bold',
     marginBottom: 36,
     textAlign: 'center',
   },
-  wordPointTitle: {
-    fontSize: 18,
+  wordTitle: {
+    fontSize: 20,
     fontFamily: 'Roboto_400Regular',
     textAlign: 'center',
   },
@@ -21,5 +21,19 @@ export default StyleSheet.create({
     fontSize: 24,
     fontFamily: 'Roboto_700Bold',
     textAlign: 'center',
+  },
+  category: {
+    fontSize: 20,
+    fontFamily: 'Roboto_700Bold',
+    textAlign: 'center',
+    textDecorationLine: 'underline',
+    marginBottom: 8,
+  },
+  team: {
+    marginBottom: 36,
+    fontFamily: 'Roboto_700Bold',
+    textAlign: 'center',
+    textDecorationLine: 'underline',
+    fontSize: 24,
   },
 });

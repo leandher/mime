@@ -1,22 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-
-import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text } from 'react-native';
 
 import styles from './styles';
 
-const Header: React.FC = () => {
-  const navigation = useNavigation();
-
-  function handleNavigateBack() {
-    navigation.goBack();
-  }
+const Header: React.FC = ({ children }) => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity onPress={handleNavigateBack}>
-        <Feather name="arrow-left" size={24} />
-      </TouchableOpacity>
+      {children}
       <Text style={styles.title}>Mime</Text>
     </View>
   );
