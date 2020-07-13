@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
-import { View, StyleSheet, Animated, Text } from 'react-native';
+import { View, StyleSheet, Animated, Text, TouchableOpacity } from 'react-native';
+
+import { Feather } from '@expo/vector-icons';
 
 import useInterval from '../../../../hooks/useInterval';
 
@@ -46,6 +48,15 @@ const ProgressBar: React.FC<Props> = ({ handleFinish, time }) => {
         <Animated.View style={[[StyleSheet.absoluteFill], { backgroundColor: '#333', width }]} />
       </View>
       <Text style={styles.timeText}>{`Faltam ${progress}s`}</Text>
+
+      <View style={styles.actionButton}>
+        <TouchableOpacity onPress={handleFinish}>
+          <Feather name="check" size={48} color="#496" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleFinish}>
+          <Feather name="x" size={48} color="#d90429" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

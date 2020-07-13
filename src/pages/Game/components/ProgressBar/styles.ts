@@ -21,4 +21,9 @@ export default StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
   },
+  actionButton: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    width: '50%',
+  },
 });

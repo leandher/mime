@@ -41,7 +41,7 @@ const Game: React.FC = () => {
         <Text style={styles.wordPointValue}>5 pontos</Text>
 
         {!isPlaying && <ActionButtons handlePlay={() => setPlaying(true)} />}
-        {isPlaying && <ProgressBar time={10} handleFinish={() => setPlaying(false)} />}
+        {isPlaying && <ProgressBar time={60} handleFinish={() => setPlaying(false)} />}
       </View>
     </Background>
   );
