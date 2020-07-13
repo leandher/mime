@@ -9,10 +9,12 @@ import Header from '../../components/Header';
 
 import ActionButtons from './components/ActionButtons';
 import ProgressBar from './components/ProgressBar';
+import Rank from './components/Rank';
 import styles from './styles';
 
 const Game: React.FC = () => {
   const [isPlaying, setPlaying] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const navigation = useNavigation();
 
@@ -40,9 +42,12 @@ const Game: React.FC = () => {
         <Text style={styles.category}>Ação</Text>
         <Text style={styles.wordPointValue}>5 pontos</Text>
 
-        {!isPlaying && <ActionButtons handlePlay={() => setPlaying(true)} />}
-        {isPlaying && <ProgressBar time={60} handleFinish={() => setPlaying(false)} />}
+        {!isPlaying && (
+          <ActionButtons onPlay={() => setPlaying(true)} onRank={() => setOpen(true)} />
+        )}
+        {isPlaying && <ProgressBar time={60} onFinish={() => setPlaying(false)} />}
       </View>
+      <Rank open={open} onClose={() => setOpen(false)} />
     </Background>
   );
 };

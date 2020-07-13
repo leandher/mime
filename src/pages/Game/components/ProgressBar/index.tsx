@@ -8,11 +8,11 @@ import useInterval from '../../../../hooks/useInterval';
 import styles from './styles';
 
 interface Props {
-  handleFinish(): void;
+  onFinish(): void;
   time: number;
 }
 
-const ProgressBar: React.FC<Props> = ({ handleFinish, time }) => {
+const ProgressBar: React.FC<Props> = ({ onFinish, time }) => {
   const animation = useRef(new Animated.Value(time));
   const [progress, setProgress] = useState(time - 1);
 
@@ -20,7 +20,7 @@ const ProgressBar: React.FC<Props> = ({ handleFinish, time }) => {
     if (progress > 0) {
       setProgress(progress - 1);
     } else {
-      handleFinish();
+      onFinish();
     }
   }, 1000);
 
@@ -50,10 +50,10 @@ const ProgressBar: React.FC<Props> = ({ handleFinish, time }) => {
       <Text style={styles.timeText}>{`Faltam ${progress}s`}</Text>
 
       <View style={styles.actionButton}>
-        <TouchableOpacity onPress={handleFinish}>
+        <TouchableOpacity onPress={onFinish}>
           <Feather name="check" size={48} color="#496" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleFinish}>
+        <TouchableOpacity onPress={onFinish}>
           <Feather name="x" size={48} color="#d90429" />
         </TouchableOpacity>
       </View>

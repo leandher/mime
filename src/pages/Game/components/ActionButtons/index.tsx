@@ -6,22 +6,23 @@ import { Feather } from '@expo/vector-icons';
 import styles from './styles';
 
 interface Props {
-  handlePlay(): void;
+  onPlay(): void;
+  onRank(): void;
 }
 
-const ActionButtons: React.FC<Props> = ({ handlePlay }) => {
+const ActionButtons: React.FC<Props> = ({ onPlay, onRank }) => {
   return (
     <View style={styles.buttonGroup}>
-      <TouchableOpacity onPress={handlePlay}>
+      <TouchableOpacity onPress={onPlay}>
         <Feather name="play-circle" size={48} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={handlePlay}>
+      <TouchableOpacity onPress={onPlay}>
         <Feather name="refresh-cw" size={48} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={handlePlay}>
+      <TouchableOpacity onPress={onRank}>
         <Feather name="menu" size={48} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={handlePlay}>
+      <TouchableOpacity onPress={onPlay}>
         <Feather name="fast-forward" size={48} />
       </TouchableOpacity>
     </View>
