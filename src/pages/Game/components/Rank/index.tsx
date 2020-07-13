@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Modal, Text, SafeAreaView, FlatList } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View, Modal, Text, FlatList, TouchableOpacity } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 
@@ -15,7 +14,7 @@ interface Props {
 
 const Rank: React.FC<Props> = ({ open, onClose }) => {
   return (
-    <Modal animationType="slide" visible={open} presentationStyle="fullScreen">
+    <Modal animationType="slide" visible={open} onRequestClose={onClose} statusBarTranslucent>
       <View style={styles.container}>
         <Header>
           <TouchableOpacity onPress={onClose}>
@@ -25,7 +24,7 @@ const Rank: React.FC<Props> = ({ open, onClose }) => {
 
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={[0, 1, 2]}
+          data={[0, 1]}
           keyExtractor={(item) => String(item)}
           renderItem={({ item }) => (
             <View style={styles.item}>

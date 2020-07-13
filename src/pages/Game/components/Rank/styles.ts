@@ -1,9 +1,9 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios' ? 36 : 20,
+    paddingTop: 40,
     paddingBottom: 24,
     paddingHorizontal: 24,
     backgroundColor: '#FAF9FE',

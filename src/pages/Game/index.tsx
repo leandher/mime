@@ -46,8 +46,8 @@ const Game: React.FC = () => {
           <ActionButtons onPlay={() => setPlaying(true)} onRank={() => setOpen(true)} />
         )}
         {isPlaying && <ProgressBar time={60} onFinish={() => setPlaying(false)} />}
+        <Rank open={open} onClose={() => setOpen(false)} />
       </View>
-      <Rank open={open} onClose={() => setOpen(false)} />
     </Background>
   );
 };
