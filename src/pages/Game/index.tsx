@@ -37,7 +37,7 @@ const Game: React.FC = () => {
         <Text style={styles.team}>Equipe 1 - 10 pontos</Text>
 
         <Text style={styles.wordTitle}>Sua palavra é</Text>
-        <Text style={styles.word}>Lorem ipsum dolor sit amet</Text>
+        <Text style={styles.word}>Lorem ipsum</Text>
 
         <Text style={styles.category}>Ação</Text>
         <Text style={styles.wordPointValue}>5 pontos</Text>
