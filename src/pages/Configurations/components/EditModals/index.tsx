@@ -48,17 +48,21 @@ const EditModals: React.FC<Props> = ({
     switch (editKey) {
       case 'duration':
         updateDuration(sliderValue);
+        onClose();
         break;
       case 'maxPoints':
         updateMaxPoints(sliderValue);
+        onClose();
         break;
       case 'team':
-        addTeams(textValue);
+        if (textValue) {
+          addTeams(textValue);
+          onClose();
+        }
         break;
       default:
         break;
     }
-    onClose();
   };
 
   useEffect(() => {

@@ -20,13 +20,14 @@ export type EditKey = 'team' | 'duration' | 'maxPoints' | '';
 const Configurations: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [editKey, setEditKey] = useState<EditKey>('');
-  const [duration, setDuration] = usePersistedState<number>('duration', 60);
-  const [maxPoints, setMaxPoints] = usePersistedState<number>('maxPoints', 60);
+  const [duration, setDuration] = usePersistedState<number>('@duration', 60);
+  const [maxPoints, setMaxPoints] = usePersistedState<number>('@maxPoints', 60);
   const [teams, setTeams] = useState<Team[]>([]);
 
   const navigation = useNavigation();
 
-  const handleNavigation = () => {
+  const handleNavigation = async () => {
+    await AsyncStorage.setItem('@game', JSON.stringify({ duration, maxPoints, teams }));
     navigation.navigate('Game');
   };
 
@@ -46,7 +47,7 @@ const Configurations: React.FC = () => {
 
     setTeams(newTeams);
 
-    AsyncStorage.setItem('teams', JSON.stringify(newTeams));
+    AsyncStorage.setItem('@teams', JSON.stringify(newTeams));
   };
 
   const removeTeam = (id: number) => {
@@ -54,12 +55,12 @@ const Configurations: React.FC = () => {
 
     setTeams(newTeams);
 
-    AsyncStorage.setItem('teams', JSON.stringify(newTeams));
+    AsyncStorage.setItem('@teams', JSON.stringify(newTeams));
   };
 
   useEffect(() => {
     const getStoreValue = async () => {
-      const storedTeams = await AsyncStorage.getItem('teams');
+      const storedTeams = await AsyncStorage.getItem('@teams');
       if (storedTeams) setTeams(JSON.parse(storedTeams));
     };
 
