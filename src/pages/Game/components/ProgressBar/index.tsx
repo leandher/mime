@@ -51,10 +51,10 @@ const ProgressBar: React.FC<Props> = ({ onFinish, time }) => {
 
       <View style={styles.actionButton}>
         <TouchableOpacity onPress={onFinish}>
-          <Feather name="check" size={48} color="#496" />
+          <Feather name="check" size={48} color="#67e480" />
         </TouchableOpacity>
         <TouchableOpacity onPress={onFinish}>
-          <Feather name="x" size={48} color="#d90429" />
+          <Feather name="x" size={48} color="#E96379" />
         </TouchableOpacity>
       </View>
     </View>

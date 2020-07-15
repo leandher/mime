@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import Background from '../../components/Background';
 import Header from '../../components/Header';
+import usePersistedState from '../../hooks/usePersistedState';
 
 import ActionButtons from './components/ActionButtons';
 import ProgressBar from './components/ProgressBar';
@@ -13,6 +14,8 @@ import Rank from './components/Rank';
 import styles from './styles';
 
 const Game: React.FC = () => {
+  const [duration] = usePersistedState<number>('duration');
+  const [maxPoints] = usePersistedState<number>('maxPoints');
   const [isPlaying, setPlaying] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -45,7 +48,7 @@ const Game: React.FC = () => {
         {!isPlaying && (
           <ActionButtons onPlay={() => setPlaying(true)} onRank={() => setOpen(true)} />
         )}
-        {isPlaying && <ProgressBar time={60} onFinish={() => setPlaying(false)} />}
+        {isPlaying && <ProgressBar time={duration || 30} onFinish={() => setPlaying(false)} />}
         <Rank open={open} onClose={() => setOpen(false)} />
       </View>
     </Background>

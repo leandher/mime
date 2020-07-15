@@ -4,11 +4,16 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 type Response<T> = [T, Dispatch<SetStateAction<T>>];
 
-function usePersistedState<T>(key: string, initialState: T): Response<T> {
-  const [state, setState] = useState<T>(initialState);
+function usePersistedState<T>(key: string, initialState?: T): Response<T | undefined> {
+  const [state, setState] = useState<T>();
 
   useEffect(() => {
-    AsyncStorage.setItem(key, JSON.stringify(state));
+    const update = async () => {
+      if (state !== undefined && state !== null)
+        await AsyncStorage.setItem(key, JSON.stringify(state));
+    };
+
+    update();
   }, [key, state]);
 
   useEffect(() => {
@@ -16,10 +21,11 @@ function usePersistedState<T>(key: string, initialState: T): Response<T> {
       const storageValue = await AsyncStorage.getItem(key);
 
       if (storageValue) setState(JSON.parse(storageValue));
+      else setState(initialState);
     };
 
     getValues();
-  }, [key]);
+  }, [initialState, key]);
 
   return [state, setState];
 }
