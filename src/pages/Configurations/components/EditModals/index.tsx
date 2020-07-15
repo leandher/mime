@@ -70,6 +70,9 @@ const EditModals: React.FC<Props> = ({
         case 'maxPoints':
           setSliderValue(maxPoints);
           break;
+        case 'team':
+          setTextValue('');
+          break;
         default:
           break;
       }

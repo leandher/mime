@@ -37,6 +37,8 @@ export default StyleSheet.create({
     width: 200,
     marginVertical: 36,
     padding: 8,
+    borderRadius: 10,
+    fontFamily: 'Roboto_400Regular',
   },
   modalSlider: {
     width: 200,
